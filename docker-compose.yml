@@ -1,0 +1,36 @@
+version: '3'
+services:
+  tilestache:
+    container_name: tilestache-server
+    image: tilestache
+    restart: unless-stopped
+    ports:
+     - '8181:8080' # host:container
+    volumes: 
+      - /path/to/local/tilestache.cfg:/etc/tilestache/tilestache.cfg
+    # - /path/linked/from/tilestache/config:/path/linked/from/tilestache/config
+
+# uncomment to use with traefik 2.0
+
+#       - /etc/localtime:/etc/localtime:ro
+#       - /var/run/docker.sock:/var/run/docker.sock:ro
+#     networks:
+#       - proxy
+#     labels: 
+#       - "traefik.enable=true"
+#       - "traefik.http.routers.tileapi.entrypoints=http"
+#       - "traefik.http.routers.tileapi.rule=Host(`tileapi.example.com`)"
+#       - "traefik.http.middlewares.tileapi-https-redirect.redirectscheme.scheme=https"
+#       - "traefik.http.middlewares.tileapi-header.headers.accesscontrolalloworigin=*"
+#       - "traefik.http.routers.tileapi.middlewares=tileapi-https-redirect"
+#       - "traefik.http.routers.tileapi-secure.entrypoints=https"
+#       - "traefik.http.routers.tileapi-secure.rule=Host(`tileapi.example.com`)"
+#       - "traefik.http.routers.tileapi-secure.tls=true"
+#       - "traefik.http.routers.tileapi-secure.tls.certresolver=http"
+#       - "traefik.http.routers.tileapi-secure.service=tileapi"
+#       - "traefik.http.services.tileapi.loadbalancer.server.port=8080"
+#       - "traefik.docker.network=proxy"
+
+# networks:
+#   proxy:
+#     external: true

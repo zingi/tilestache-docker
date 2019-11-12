@@ -1,0 +1,8 @@
+ModestMaps
+simplejson
+shapely
+pillow
+psycopg2==2.7.7
+mapbox-vector-tile
+TileStache
+gunicorn
