@@ -2,7 +2,7 @@ version: '3'
 services:
   tilestache:
     container_name: tilestache-server
-    image: tilestache
+    image: zingi/tilestache:1.0.0
     restart: unless-stopped
     ports:
      - '8181:8080' # host:container
